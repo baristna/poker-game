@@ -11,6 +11,7 @@ class Game {
     this.score = 0;
     this.fresh = true;
     this.highScore = 0;
+    this.rules = true;
   }
   getDeck() {
     return this.Deck.getDeck();
@@ -32,6 +33,12 @@ class Game {
   }
   getHighScore() {
     return this.highScore;
+  }
+  getRules() {
+    return this.rules;
+  }
+  setRules(state) {
+    this.rules = state;
   }
   isGameEnd() {
     return this.end;

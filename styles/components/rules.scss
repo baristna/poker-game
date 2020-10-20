@@ -1,0 +1,25 @@
+.rules {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+
+  &__content {
+    max-width: 500px;
+
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+}

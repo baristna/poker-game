@@ -27,7 +27,8 @@
     </script>
     <div id="app">
       <div class="header">
-        <div class="high-score">High Score: <span id="high-score">5</span></div>
+        <div class="header__left">High Score: <span id="high-score">5</span></div>
+        <div class="header__right"><button id='open-rules'>Rules</button></div>
         <div class="header__lives" id="lives"></div>
       </div>
 
@@ -70,6 +71,30 @@
       <div class="end__text">Game Over</div>
       <div class="end__score">Score: <span id='end-score'></span></div>
       <div><button class="end__button" id="new-game">New Game</button></div>  
+    </div>
+
+    <div id='rules' class='rules'>
+      <div class="rules__content">
+        <h1>Lower-Higher Rules</h1>
+        <ul>
+          <li>Focus of the game is to guess the next card if it will higher or lower than the previous one.</li>
+          <li>
+            You will start the game with 3 <span style='color: #B01E1E'>♥</span>'s. Each wrong guess cause <span style='color: #B01E1E'>♥</span> loss.
+            If you lose all of your 3 <span style='color: #B01E1E'>♥</span>'s and guess wrong, the game will end.
+          </li>
+          <li>
+            Each correct guess will increase the multiplier.
+            Each correct guess will increase your score by multiplier.
+          </li>
+          <li>
+            When you guess correctly while you have x5, your multiplier will be spend to gain a <span style='color: #B01E1E'>♥</span>.
+            If you have 3 <span style='color: #B01E1E'>♥</span>'s then multiplier will keep increasing.
+          </li>
+        </ul>
+        <div class="rules__button">
+          Click to continue...
+        </div>
+      </div>
     </div>
     <script src="bundle.js" async defer></script>
   </body>
