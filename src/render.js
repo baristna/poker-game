@@ -1,5 +1,8 @@
 const render = (game) => {
   // Render Card
+  if (game.isFresh()) {
+    document.getElementById('card-wrapper').innerHTML = ''
+  }
   var x = document.getElementsByClassName('card');
   for (var i = 0; i < x.length; i++) {
     x[i].classList.add('prev');
@@ -36,6 +39,16 @@ const render = (game) => {
 
   // Render Score
   document.getElementById('score').innerHTML = game.getScore();
+  document.getElementById('end-score').innerHTML = game.getScore();
+
+  // Render end screen
+  document.getElementById('end-screen').style.display = game.isGameEnd() ? 'flex' : 'none';
+
+  // End Game Deck View
+  document.getElementById('deck').style.opacity = game.getDeck().length ? 1 : 0;
+
+  // High-score
+  document.getElementById('high-score').innerHTML = game.getHighScore()
 }
 
 export default render;

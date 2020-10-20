@@ -24,6 +24,8 @@
   animation-duration: 500ms;
 
   &__corner {
+    position: absolute;
+    right: 0;
     padding: 10px;
     font-size: 32px;
     display: inline-flex;
@@ -34,7 +36,6 @@
   &__bottom {
     position: absolute;
     bottom: 0;
-    right: 0;
     padding: 10px;
     font-size: 32px;
     display: inline-flex;

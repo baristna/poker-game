@@ -21,20 +21,22 @@ const numbers = [
   { name: 'King', alias: 'K', number: 13 },
 ]
 
-const newDeck = [];
-
-types.forEach(type => {
-  numbers.forEach(number => {
-    newDeck.push({
-      ...type,
-      ...number
+const newDeck = () => {
+  const newDeckArray = [];
+  types.forEach(type => {
+    numbers.forEach(number => {
+      newDeckArray.push({
+        ...type,
+        ...number
+      })
     })
   })
-})
+  return newDeckArray;
+}
 
 class Deck {
   constructor() {
-    this.deck = newDeck;
+    this.deck = newDeck();
   }
   getDeck() {
     return this.deck;
@@ -43,6 +45,8 @@ class Deck {
     return this.deck.pop()
   }
   shuffle() {
+    console.log('newDeck', newDeck())
+    this.deck = newDeck();
     /**
      * Fisher-Yates Shuffle Algorithm
      * https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#The_modern_algorithm
@@ -51,7 +55,7 @@ class Deck {
         const j = Math.floor(Math.random() * (i + 1));
         [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
     }
-}
+  }
 }
 
 export default Deck

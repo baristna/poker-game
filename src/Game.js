@@ -9,6 +9,8 @@ class Game {
     this.streak = 0;
     this.end = false;
     this.score = 0;
+    this.fresh = true;
+    this.highScore = 0;
   }
   getDeck() {
     return this.Deck.getDeck();
@@ -28,14 +30,28 @@ class Game {
   getScore() {
     return this.score;
   }
+  getHighScore() {
+    return this.highScore;
+  }
+  isGameEnd() {
+    return this.end;
+  }
+  isFresh() {
+    return this.fresh;
+  }
   start() {
+    this.end = false;
+    this.Deck.shuffle();
+    this.currentCard = null;
+    this.newCard = null;
+    this.fresh = true;
     this.lives = 3;
     this.streak = 0;
     this.score = 0;
-    this.Deck.shuffle()
     this.newCard = this.Deck.takeACard()
   }
   guess(higher) {
+    this.fresh = false;
     this.currentCard = this.newCard;
     this.newCard = this.Deck.takeACard()
 
@@ -43,12 +59,9 @@ class Game {
       this.streak++;
       this.score += this.streak;
 
-      if (this.streak === 5) {
+      if (this.streak >= 5 && this.lives < 3) {
         this.streak = 0;
-        
-        if (this.lives < 3) {
-          this.lives++
-        }
+        this.lives++
       }
     } else {
       if (this.lives === 0) {
@@ -59,9 +72,17 @@ class Game {
       }
     }
 
-    console.log('lives:' + this.lives + ', streak:' + this.streak);
+    if (this.getDeck().length === 0) {
+      this.endGame()
+    }
   }
-  endGame() { this.end = true }
+  endGame() {
+    this.end = true;
+
+    if (this.score > this.highScore) {
+      this.highScore = this.score;
+    }
+  }
 }
 
 export default Game
