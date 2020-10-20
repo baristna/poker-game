@@ -32,6 +32,9 @@ const render = (game) => {
 
     if (i < game.getLives()) {
       heartEl.style.color = '#B01E1E'
+      heartEl.style.transform = 'scale(2.4)'
+    } else {
+      heartEl.style.color = '#666666'
     }
     heartEl.innerHTML = '♥'
     livesEl.appendChild(heartEl)
