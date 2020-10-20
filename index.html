@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Poker Game</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+    <script id="table-temp" type="x-template">
+      <div id='table-top' class='table__side table__top'></div>
+      <div id='table-left' class='table__side table__left'></div>
+      <div id='table-right' class='table__side table__right'></div>
+      <div id='table-stage' class='table__stage'>
+        <div class='card'></div>
+      </div>
+    </script>
+    <script id="player-temp" type="x-template">
+      <div class="player__avatar" style='background-image: url("{avatar}")'></div> 
+      <div class="player__name">{name}</div>
+      <div class="player__balance">{balance}</div>
+    </script>
+    <div id='app'>
+      <div id='table' class='table'></div>
+      <div class='control'>
+        <button id='control-deal'>Deal</button>
+      </div>
+    </div>
+    <script src="bundle.js" async defer></script>
+  </body>
+</html>

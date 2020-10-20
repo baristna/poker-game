@@ -1,5 +1,6 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
@@ -9,6 +10,27 @@ module.exports = {
         test: /\.(js)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+                name: '[path][name].[ext]',
+                context: path.resolve(__dirname, "public/"),
+                outputPath: 'public/'
+            }
+          }
+        ]
       }
     ]
   },
@@ -27,9 +49,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: 'index.html',
       filename: 'index.html',
       inject: false 
-    })
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './public', to: './' },
+      ],
+    }),
   ]
 };
