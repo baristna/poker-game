@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24">
+    <title>Triangle</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-674.000000, -74.000000)" fill="#D8D8D8">
+            <polygon id="Triangle" points="686 74 698 98 674 98"></polygon>
+        </g>
+    </g>
+</svg>

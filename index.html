@@ -6,29 +6,60 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Poker Game</title>
+    <title>The Game</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
   </head>
   <body>
-    <script id="table-temp" type="x-template">
-      <div id='table-top' class='table__side table__top'></div>
-      <div id='table-left' class='table__side table__left'></div>
-      <div id='table-right' class='table__side table__right'></div>
-      <div id='table-stage' class='table__stage'>
-        <div class='card'></div>
+    <script id="card-temp" type="x-template">
+      <div class="card__front">
+        <div class="card__corner">
+          <div class="card__number">{alias}</div>
+          <div class="card__symbol">{unicode}</div>
+        </div> 
+        <div class="card__center">{unicode}</div>
+        <div class="card__bottom">
+          <div class="card__number">{alias}</div>
+          <div class="card__symbol">{unicode}</div>
+        </div> 
       </div>
-    </script>
-    <script id="player-temp" type="x-template">
-      <div class="player__avatar" style='background-image: url("{avatar}")'></div> 
-      <div class="player__name">{name}</div>
-      <div class="player__balance">{balance}</div>
+      <div class="card__back"></div>
     </script>
     <div id='app'>
-      <div id='table' class='table'></div>
+      <div class="header">
+        <div class='high-score'>High Score: <span id='high-score'>5</span></div>
+        <div class="header__lives" id='lives'>
+          3
+        </div>
+      </div>
+      <div class='area'>
+        <div class='area__inner'>
+          <div class='deck'>
+            <div class='deck__left'>Cards Left: <span id='left'>52</span></div>
+          </div>
+          <div id='card-wrapper' class='card-wrapper'>
+            <div class='card-wrapper__right'>Score: <span id='score'>0</span></div>
+          </div>
+        </div>
+      </div>
       <div class='control'>
-        <button id='control-deal'>Deal</button>
+        <div></div>
+        <button id='btn-lower' class='control__button control__down'>
+          <svg class="icon" width="24px" height="24px" viewBox="0 0 24 24">
+            <g transform="translate(-674.000000, -74.000000)" fill="#B01E1E">
+              <polygon transform="translate(686.000000, 86.000000) rotate(-180.000000) translate(-686.000000, -86.000000) " points="686 74 698 98 674 98"></polygon>
+            </g>
+          </svg>
+          Lower
+        </button>
+        <button id='btn-higher' class='control__button control__up'>
+          <svg class='icon' width="24px" height="24px" viewBox="0 0 24 24">
+            <g transform="translate(-674.000000, -74.000000)" fill="#1EB029">
+              <polygon points="686 74 698 98 674 98"></polygon>
+            </g>
+          </svg>
+          Higher
+        </button>
       </div>
     </div>
     <script src="bundle.js" async defer></script>

@@ -1,0 +1,16 @@
+.area {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  justify-content: center;
+  align-items: flex-start;
+
+  &__inner {
+    margin-top: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 620px;
+  }
+}

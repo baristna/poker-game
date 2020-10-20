@@ -1,0 +1,16 @@
+.header {
+  position: relative;
+
+  &__lives {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+
+    & > div {
+      margin: 5px;
+    }
+  }
+}

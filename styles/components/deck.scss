@@ -1,0 +1,13 @@
+.deck {
+  position: relative;
+  background-image: url('../assets/deckback.png');
+  background-size: 300px 460px;
+  height: 460px;
+  width: 300px;
+  margin-right: 20px;
+
+  &__left {
+    position: absolute;
+    bottom: calc(100% + 5px);
+  }
+}

@@ -1,6 +1,140 @@
+.card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  &__right {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 5px);
+  }
+}
+
 .card {
-  height: 80px;
-  width: 50px;
-  background-image: url('../assets/deck.gif');
-  background-size: 650px 400px;
+  position: absolute;
+  top: 0;
+  height: 460px;
+  width: 300px;
+  color: #000;
+  left: 50%;
+  transform: translateX(-50%) scale(1.1);
+  animation-name: draw;
+  animation-duration: 500ms;
+
+  &__corner {
+    padding: 10px;
+    font-size: 32px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 32px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    transform: rotateX(180deg) rotateY(180deg);
+  }
+
+  &__center {
+    position: absolute;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 240px;
+  }
+
+  &.prev {
+    animation-name: movePrev;
+    animation-duration: 500ms;
+    left: 100%;
+    transform: translateX(-100%) scale(1);
+  }
+
+  &__front {
+    position: relative;
+    backface-visibility: hidden;
+    background: #FFF;
+    border-radius: 10px;
+    height: 460px;
+    width: 300px;
+    animation-name: rotateFront;
+    animation-duration: 500ms;
+    transform: rotateY(0);
+    border: 1px solid #666;
+    perspective: 300px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.17);
+  }
+
+  &__back {
+    position: absolute;
+    background-image: url('../assets/deckback.png');
+    background-size: 300px 460px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    animation-name: rotateBack;
+    animation-duration: 500ms;
+    perspective: 300px
+  }
+}
+
+@keyframes draw {
+  0%   {
+    left: 0;
+    transform: translateX(0);
+  }
+  100% {
+    left: 50%;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+@keyframes movePrev {
+  0% {
+    left: 50%;
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(-100%) scale(1);
+  }
+}
+
+@keyframes rotateFront {
+  0%   {
+    transform: rotateY(180deg);
+  }
+  50%   {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes rotateBack {
+  0%   {
+    transform: rotateY(0);
+  }
+  50%   {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
 }
