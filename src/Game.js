@@ -55,19 +55,22 @@ class Game {
     this.currentCard = this.newCard;
     this.newCard = this.Deck.takeACard()
 
-    if ((this.currentCard.number < this.newCard.number) === higher) {
+    if ((this.currentCard.number <= this.newCard.number) === higher) {
       this.streak++;
       this.score += this.streak;
 
       if (this.streak >= 5 && this.lives < 3) {
-        this.streak = 0;
+        this.streak = this.streak - 5;
         this.lives++
       }
     } else {
-      if (this.lives === 0) {
+      if (this.lives === 0 && this.streak < 5) {
         this.endGame()
       } else {
-        this.lives--;
+        if (this.streak < 5) {
+          this.lives--;
+        }
+        
         this.streak = 0;
       }
     }

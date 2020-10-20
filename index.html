@@ -28,20 +28,23 @@
     <div id="app">
       <div class="header">
         <div class="high-score">High Score: <span id="high-score">5</span></div>
-        <div class="header__lives" id="lives">
-          3
-        </div>
+        <div class="header__lives" id="lives"></div>
       </div>
+
       <div class="area">
         <div class="area__inner">
           <div id='deck' class="deck">
             <div class="deck__left">Cards Left: <span id="left">52</span></div>
           </div>
-          <div class="card-wrapper__right">Score: <span id="score">0</span></div>
-          <div id="card-wrapper" class="card-wrapper">
-          </div>
+
+          <div class="area__score">Score: <span id="score">0</span></div>
+
+          <div id="card-wrapper" class="card-wrapper"></div>
+
+          <div class="area__multiplier">x<span id='multiplier'>1</span></div>
         </div>
       </div>
+
       <div class="control">
         <div></div>
         <button id="btn-lower" class="control__button control__down">
@@ -62,6 +65,7 @@
         </button>
       </div>
     </div>
+
     <div id='end-screen' class="end">
       <div class="end__text">Game Over</div>
       <div class="end__score">Score: <span id='end-score'></span></div>

@@ -41,6 +41,9 @@ const render = (game) => {
   document.getElementById('score').innerHTML = game.getScore();
   document.getElementById('end-score').innerHTML = game.getScore();
 
+  // Render Multiplier
+  document.getElementById('multiplier').innerHTML = game.getStreak() + 1;
+
   // Render end screen
   document.getElementById('end-screen').style.display = game.isGameEnd() ? 'flex' : 'none';
 
@@ -49,6 +52,7 @@ const render = (game) => {
 
   // High-score
   document.getElementById('high-score').innerHTML = game.getHighScore()
+
 }
 
 export default render;

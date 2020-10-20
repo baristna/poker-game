@@ -4,12 +4,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-
-  &__right {
-    position: absolute;
-    right: 0;
-    bottom: calc(100% + 5px);
-  }
 }
 
 .card {
